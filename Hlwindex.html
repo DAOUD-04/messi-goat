@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lionel Messi — The GOAT 🐐</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg-color: #0b0e14;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --accent-gold: #f39c12;
+            --accent-blue: #75aadb;
+            --text-light: #f1f2f6;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgba(11, 14, 20, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .music-btn {
+            background: linear-gradient(45deg, var(--accent-gold), #e67e22);
+            border: none;
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(243, 156, 18, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle, rgba(117,170,219,0.15) 0%, rgba(11,14,20,1) 80%),
+                        url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1200') no-repeat center center/cover;
+            background-blend-mode: overlay;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            color: var(--accent-gold);
+            text-shadow: 0 0 20px rgba(243, 156, 18, 0.6);
+            margin-bottom: 5px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--accent-blue);
+            max-width: 600px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .btn-main {
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-main:hover {
+            background: var(--accent-gold);
+            color: #000;
+            box-shadow: 0 0 20px rgba(243, 156, 18, 0.8);
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin: 60px 0 30px;
+            color: var(--accent-gold);
+            position: relative;
+            font-weight: 700;
+            font-family: 'Cinzel', serif;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 3px;
+            background: var(--accent-blue);
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Stats Grid */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 0 8%;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px 15px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 10px 20px rgba(243, 156, 18, 0.2);
+        }
+
+        .stat-card i {
+            font-size: 2.2rem;
+            color: var(--accent-gold);
+            margin-bottom: 12px;
+        }
+
+        .stat-card h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            font-family: 'Cinzel', serif;
+        }
+
+        .stat-card p {
+            color: #a4b0be;
+            font-size: 1rem;
+        }
+
+        /* Club & Country Section */
+        .breakdown-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 8%;
+        }
+
+        .breakdown-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .breakdown-card:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .breakdown-card h3 {
+            color: var(--accent-gold);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .breakdown-list {
+            list-style: none;
+            line-height: 2;
+            color: #dcdde1;
+        }
+
+        .breakdown-list span {
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 0 8%;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 250px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            color: #fff;
+            font-size: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #06080c;
+            color: #747d8c;
+            margin-top: 60px;
+            font-size: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        footer span {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Audio -->
+    <audio id="bg-audio" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=cinematic-epic-113088.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">MESSI 10</div>
+        <button class="music-btn" onclick="toggleAudio()">
+            <i class="fa-solid fa-music" id="music-icon"></i>
+            <span id="music-text">Play Music</span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>LIONEL MESSI</h1>
+        <p>The Greatest Footballer of All Time 🐐</p>
+        <a href="#stats" class="btn-main">View Full Career Stats</a>
+    </section>
+
+    <!-- Overall Stats -->
+    <h2 class="section-title" id="stats">EXACT ALL-TIME STATS</h2>
+    <div class="stats-container">
+        <div class="stat-card">
+            <i class="fa-solid fa-futbol"></i>
+            <h2>932</h2>
+            <p>Official Goals</p>
+        </div>
+        <div class="stat-card">
+            <i class="fa-solid fa-hands-helping"></i>
+            <h2>426</h2>
+            <p>Career Assists</p>
+        </div>
+        <div class="stat-card">
+            <i class="fa-solid fa-trophy"></i>
+            <h2>45</h2>
+            <p>Major Trophies</p>
+        </div>
+        <div class="stat-card">
+            <i class="fa-solid fa-award"></i>
+            <h2>8</h2>
+            <p>Ballon d'Ors</p>
+        </div>
+    </div>
+
+    <!-- Career Breakdown -->
+    <h2 class="section-title">CAREER BREAKDOWN</h2>
+    <div class="breakdown-grid">
+        <div class="breakdown-card">
+            <h3><i class="fa-solid fa-shield-halved"></i> FC Barcelona</h3>
+            <ul class="breakdown-list">
+                <li>Appearances: <span>778 Matches</span></li>
+                <li>Goals: <span>672 Goals</span></li>
+                <li>Assists: <span>303 Assists</span></li>
+                <li>Trophies: <span>35 Titles (4 UCL, 10 La Liga)</span></li>
+            </ul>
+        </div>
+        <div class="breakdown-card">
+            <h3><i class="fa-solid fa-flag"></i> Argentina</h3>
+            <ul class="breakdown-list">
+                <li>Appearances: <span>208 Matches</span></li>
+                <li>Goals: <span>126 Goals</span></li>
+                <li>Trophies: <span>FIFA World Cup 2022 🏆</span></li>
+                <li>Copa America: <span>2x Champion (2021, 2024)</span></li>
+            </ul>
+        </div>
+        <div class="breakdown-card">
+            <h3><i class="fa-solid fa-star"></i> PSG & Inter Miami</h3>
+            <ul class="breakdown-list">
+                <li>PSG Goals: <span>32 Goals (75 Matches)</span></li>
+                <li>PSG Trophies: <span>2 Ligue 1 Titles</span></li>
+                <li>Inter Miami Goals: <span>102 Goals</span></li>
+                <li>Inter Miami Trophies: <span>Supporters' Shield & Leagues Cup</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <h2 class="section-title">ICONIC MOMENTS</h2>
+    <div class="gallery-grid">
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?q=80&w=800" alt="World Cup Victory">
